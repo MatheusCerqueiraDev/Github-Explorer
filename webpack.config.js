@@ -1,5 +1,6 @@
 const path = require ('path')
 const HtmlWebPackPlugin = require ('html-webpack-plugin')
+const ReactRefreshWebPackPlugin = require ('@pmmmwh/react-refresh-webpack-plugin')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -18,16 +19,22 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'public')//cria a automatização da reinderização da aplicação
     },
         plugins: [
+            isDevelopment && new ReactRefreshWebPackPlugin(),
             new HtmlWebPackPlugin({
                 template: path.resolve(__dirname, 'public', 'index.html')
             })
-        ],
+        ].filter(Boolean),
     module: {
         rules: [
             {
                 test: /\.jsx$/, //REGRA DE NEGOCIO, nesse objeto estou verificando se o arquivo é jsx
                 exclude: /node_modules/,
-                use: 'babel-loader',
+                use: {
+                    loader: 'babel-loader',
+                    options: [
+                        isDevelopment && require.resolve('react-refresh/babel')
+                    ].filter(Boolean)
+                },
             },{
                 test: /\.scss$/, //REGRA DE NEGOCIO, nesse objeto estou verificando se o arquivo é css
                 exclude: /node_modules/,
