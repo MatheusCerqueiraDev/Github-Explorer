@@ -16,7 +16,8 @@ module.exports = {
         extensions: ['.js', '.jsx'], //especificando qual tipo de arquvio ele consegue ler
     },
     devServer: {
-        contentBase: path.resolve(__dirname, 'public')//cria a automatização da reinderização da aplicação
+        contentBase: path.resolve(__dirname, 'public'),//cria a automatização da reinderização da aplicação
+        hot: true,
     },
         plugins: [
             isDevelopment && new ReactRefreshWebPackPlugin(),
@@ -31,11 +32,14 @@ module.exports = {
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
-                    options: [
-                        isDevelopment && require.resolve('react-refresh/babel')
-                    ].filter(Boolean)
+                    options: {
+                        plugins: [
+                            isDevelopment && require.resolve('react-refresh/babel')
+                        ].filter(Boolean)
+                    }
                 },
-            },{
+            },
+            {
                 test: /\.scss$/, //REGRA DE NEGOCIO, nesse objeto estou verificando se o arquivo é css
                 exclude: /node_modules/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
