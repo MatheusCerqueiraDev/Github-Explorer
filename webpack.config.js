@@ -1,7 +1,9 @@
 const path = require ('path')
+const HtmlWebPackPlugin = require ('html-webpack-plugin')
 
 module.exports = {
     mode: 'development',
+    devtool: 'eval-source-map', //em caso de error, o devtool do google mostrara o codigo original
     entry: path.resolve(__dirname, 'src', 'index.jsx'), //entry diz qual é o arquivo raiz da aplicação]
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -9,8 +11,15 @@ module.exports = {
     },
     resolve: {
         extensions: ['.js', '.jsx'], //especificando qual tipo de arquvio ele consegue ler
-
     },
+    devServer: {
+        contentBase: path.resolve(__dirname, 'public')//cria a automatização da reinderização da aplicação
+    },
+        plugins: [
+            new HtmlWebPackPlugin({
+                template: path.resolve(__dirname, 'public', 'index.html')
+            })
+        ],
     module: {
         rules: [
             {
