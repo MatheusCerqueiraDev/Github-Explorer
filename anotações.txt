@@ -11,6 +11,12 @@
    A dom é a arvore de elementos da aplicação é o HTML convertido em uma sintaxe de objeto
    O dom ajuda que o react se comuninque com a arvore de elementos
 
+   4° Instalando tudo, agora instalaremos o Babel que funciona como um tradutor para navegadores
+   mais novos que possam não estar atualizados ou não reconhecerem algum codigo, o babel traduz 
+   o codgio para que fique entendivel para navegadores, -D dependencia de desenvolvimento, ele 
+   não deixa que a biblioteca chegue na area de produção
+   yarn add @babel/core @babel/cli @babel/preset-env @babel/preset-react -D
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -22,4 +28,3 @@
 
    2° Pasta public - Guarda todos arquivos publicos, como HTML e icones
 
-   
