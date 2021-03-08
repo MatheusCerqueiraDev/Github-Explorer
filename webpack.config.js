@@ -29,9 +29,9 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader',
             },{
-                test: /\.css$/, //REGRA DE NEGOCIO, nesse objeto estou verificando se o arquivo é css
+                test: /\.scss$/, //REGRA DE NEGOCIO, nesse objeto estou verificando se o arquivo é css
                 exclude: /node_modules/,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
     }
