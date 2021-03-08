@@ -1,9 +1,11 @@
 const path = require ('path')
 const HtmlWebPackPlugin = require ('html-webpack-plugin')
 
+const isDevelopment = process.env.NODE_ENV !== 'production'
+
 module.exports = {
-    mode: 'development',
-    devtool: 'eval-source-map', //em caso de error, o devtool do google mostrara o codigo original
+    mode: isDevelopment ? 'development': 'production',
+    devtool: isDevelopment ? 'eval-source-map' : 'source-map', //em caso de error, o devtool do google mostrara o codigo original
     entry: path.resolve(__dirname, 'src', 'index.jsx'), //entry diz qual é o arquivo raiz da aplicação]
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -26,7 +28,11 @@ module.exports = {
                 test: /\.jsx$/, //REGRA DE NEGOCIO, nesse objeto estou verificando se o arquivo é jsx
                 exclude: /node_modules/,
                 use: 'babel-loader',
-            }
+            },{
+                test: /\.css$/, //REGRA DE NEGOCIO, nesse objeto estou verificando se o arquivo é css
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader'],
+            },
         ],
     }
 }
