@@ -1,5 +1,2 @@
    import React from 'react';
-
-   function App() {
-      return <h1>Hello World</h1>
-   }
+   import { App } from './App'; //para importarmos uma função usamos chaves com o nome da mesma dentro
