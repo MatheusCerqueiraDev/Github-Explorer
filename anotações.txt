@@ -1,0 +1,25 @@
+   AULAS IGNITE
+
+   CRIANDO AMBIENTE DE DESENVOLVIMENTO 
+
+   1° Para criarmos a pasta (package.json) utilizando o yarn utilizamos o comando, yarn init -y
+
+   2° Adiconamos o React ao projeto dando o comando, yarn add react, pode conferir dentro do
+   package.json se foi instalado
+
+   3° Após instalados, instalamos o react-dom usando o comando, yarn add react-dom
+   A dom é a arvore de elementos da aplicação é o HTML convertido em uma sintaxe de objeto
+   O dom ajuda que o react se comuninque com a arvore de elementos
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+   ESTRUTURAÇÃO & ORGANIZAÇÃO DO PROJETO 
+
+   Ao adicionarmos todas as bibliotecas necessarias criamos as pastas para organizarmos o projeto
+
+   1° Pasta src - Guarda todo o codigo JS da aplicação 
+
+   2° Pasta public - Guarda todos arquivos publicos, como HTML e icones
+
+   
